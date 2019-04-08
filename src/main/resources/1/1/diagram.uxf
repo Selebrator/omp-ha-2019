@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>260</x>
+      <y>190</y>
+      <w>270</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>*Plant*
+--
+- name: String
+- description: String
+--
++ Plant(name: String, description: String)
++ getName(): String
++ setName(name: String)
++ getDescription(): String
++ setDescription(description: String)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>740</x>
+      <y>160</y>
+      <w>230</w>
+      <h>250</h>
+    </coordinates>
+    <panel_attributes>*Animal*
+--
+- name: String
+--
++ Animal(name:String)
++ addFood(food: Plant)
++ addFood(food: Animal)
++ getPlantFoods(): Plant[0..10]
++ getAnimalFoods(): Animal[0..10]
++ eatsPlants(): boolean
++ eatsAnimals(): boolean
++ isCarnivore(): boolean
++ isOmnivore(): boolean
++ isHerbivore(): boolean
++ getName(): String
++ setName(name: String)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>220</y>
+      <w>240</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-
+r2=- plantFoods
+m2=0..10
+</panel_attributes>
+    <additional_attributes>10.0;20.0;220.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>610</x>
+      <y>100</y>
+      <w>220</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+r1=- animalFoods
+m1=0..10</panel_attributes>
+    <additional_attributes>130.0;90.0;10.0;90.0;10.0;10.0;200.0;10.0;200.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>670</x>
+      <y>470</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>_grass: Plant_
+--
+name: "Grass"
+description: "is green"</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>340</x>
+      <y>690</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>_berry: Plant_
+--
+name: "Berry"
+description: "is red"</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>470</y>
+      <w>210</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>_lion: Animal_
+--
+name: "Lion"</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>340</x>
+      <y>470</y>
+      <w>210</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>_zebra: Animal_
+--
+name: "Zebra"</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>10</x>
+      <y>580</y>
+      <w>210</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>_bear: Animal_
+--
+name: "Bear"</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>340</x>
+      <y>580</y>
+      <w>210</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>_fish: Animal_
+--
+name: "Fish"</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>210</x>
+      <y>610</y>
+      <w>150</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+plantFoods</panel_attributes>
+    <additional_attributes>130.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>540</x>
+      <y>480</y>
+      <w>150</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+plantFoods</panel_attributes>
+    <additional_attributes>130.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>210</x>
+      <y>480</y>
+      <w>150</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+animalFoods</panel_attributes>
+    <additional_attributes>130.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>210</x>
+      <y>590</y>
+      <w>150</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+animalFoods</panel_attributes>
+    <additional_attributes>130.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+</diagram>
