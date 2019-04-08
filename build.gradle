@@ -23,14 +23,22 @@ test {
 task abgabe(type: Zip) {
     if(project.hasProperty("n")) {
         includeEmptyDirs = false
+        from("/") {
+            into("/")
+        }
         from("src/main/") {
-            into("main")
+            into("src/main")
         }
         from("src/test/") {
-            into("test")
+            into("src/test")
         }
         include "java/_$n/**/*"
         include "resources/$n/**/*"
+        if(!project.hasProperty("p")) {
+            include "README.md"
+            include "java/provided/*"
+            include "java/provided/_$n/**/*"
+        }
         archiveName "omp-uebung${n}-lukas.zip"
     }
 }
