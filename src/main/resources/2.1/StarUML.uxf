@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>140</x>
+      <y>150</y>
+      <w>250</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>**Star**
+--
+- database: StarsDatabase
+- name: String
+- id: String
+- distance: double
+- apparentMagnitude: double
+- type: String
+--
++ Star()
++ Star(name: String, id: String)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>560</x>
+      <y>150</y>
+      <w>250</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes>**StarsDatabase**
+--
+- stars: Star[]
+--
++ add(star: Star)
++ remove(index: int)
++ get(index: int) Star
++ size() int
++ find(id: String) Star
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>380</x>
+      <y>210</y>
+      <w>200</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;180.0;10.0</additional_attributes>
+  </element>
+</diagram>
