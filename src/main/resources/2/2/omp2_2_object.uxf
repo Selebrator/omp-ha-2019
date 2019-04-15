@@ -9,7 +9,7 @@
       <w>190</w>
       <h>60</h>
     </coordinates>
-    <panel_attributes>_waltz: StandardDance_
+    <panel_attributes>_WALTZ: StandardDance_
 --
 name: "Waltz"
 beat: "3/4"</panel_attributes>
@@ -23,7 +23,7 @@ beat: "3/4"</panel_attributes>
       <w>190</w>
       <h>60</h>
     </coordinates>
-    <panel_attributes>_tango: StandardDance_
+    <panel_attributes>_TANGO: StandardDance_
 --
 name: "Tango"
 beat: "4/4"</panel_attributes>
@@ -37,7 +37,7 @@ beat: "4/4"</panel_attributes>
       <w>190</w>
       <h>60</h>
     </coordinates>
-    <panel_attributes>_quickstep: StandardDance_
+    <panel_attributes>_QUICKSTEP: StandardDance_
 --
 name: "Quickstep"
 beat: "4/4"</panel_attributes>
@@ -51,7 +51,7 @@ beat: "4/4"</panel_attributes>
       <w>190</w>
       <h>60</h>
     </coordinates>
-    <panel_attributes>_chaChaCha: LatinDance_
+    <panel_attributes>_CHACHACHA: LatinDance_
 --
 name: "ChaChaCha"
 beat: "4/4"</panel_attributes>
@@ -65,7 +65,7 @@ beat: "4/4"</panel_attributes>
       <w>190</w>
       <h>60</h>
     </coordinates>
-    <panel_attributes>_rumba: LatinDance_
+    <panel_attributes>_RUMBA: LatinDance_
 --
 name: "Rumba"
 beat: "4/4"</panel_attributes>
@@ -79,7 +79,7 @@ beat: "4/4"</panel_attributes>
       <w>190</w>
       <h>60</h>
     </coordinates>
-    <panel_attributes>_jive: LatinDance_
+    <panel_attributes>_JIVE: LatinDance_
 --
 name: "Jive"
 beat: "4/4"</panel_attributes>
@@ -93,7 +93,7 @@ beat: "4/4"</panel_attributes>
       <w>190</w>
       <h>60</h>
     </coordinates>
-    <panel_attributes>_basicMove: Figure_
+    <panel_attributes>_BASIC_MOVE: Figure_
 --
 name: "Basic Move"
 desciption: "Lorem ipsum."</panel_attributes>
@@ -107,7 +107,7 @@ desciption: "Lorem ipsum."</panel_attributes>
       <w>190</w>
       <h>60</h>
     </coordinates>
-    <panel_attributes>_naturalTurn: Figure_
+    <panel_attributes>_NATURAL_TURN: Figure_
 --
 name: "Natural Turn"
 desciption: "Lorem ipsum."</panel_attributes>
@@ -121,7 +121,7 @@ desciption: "Lorem ipsum."</panel_attributes>
       <w>190</w>
       <h>60</h>
     </coordinates>
-    <panel_attributes>_spinTurn: Figure_
+    <panel_attributes>_SPIN_TURN: Figure_
 --
 name: "Spin Turn"
 desciption: "Lorem ipsum."</panel_attributes>
@@ -135,7 +135,7 @@ desciption: "Lorem ipsum."</panel_attributes>
       <w>190</w>
       <h>60</h>
     </coordinates>
-    <panel_attributes>_promenade: Figure_
+    <panel_attributes>_PROMENADE: Figure_
 --
 name: "Promenade"
 desciption: "Lorem ipsum."</panel_attributes>
@@ -149,7 +149,7 @@ desciption: "Lorem ipsum."</panel_attributes>
       <w>190</w>
       <h>60</h>
     </coordinates>
-    <panel_attributes>_chasse: Figure_
+    <panel_attributes>_CHASSE: Figure_
 --
 name: "Chassé"
 desciption: "Lorem ipsum."</panel_attributes>
@@ -163,7 +163,7 @@ desciption: "Lorem ipsum."</panel_attributes>
       <w>190</w>
       <h>60</h>
     </coordinates>
-    <panel_attributes>_fan: Figure_
+    <panel_attributes>_FAN: Figure_
 --
 name: "Fan"
 desciption: "Lorem ipsum."</panel_attributes>
@@ -177,7 +177,7 @@ desciption: "Lorem ipsum."</panel_attributes>
       <w>190</w>
       <h>60</h>
     </coordinates>
-    <panel_attributes>_whisk: Figure_
+    <panel_attributes>_WHISK: Figure_
 --
 name: "Whisk"</panel_attributes>
     <additional_attributes/>
