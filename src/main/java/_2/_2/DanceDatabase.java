@@ -10,7 +10,7 @@ public class DanceDatabase {
 	private static final Figure FAN          = new Figure("Fan",          "Lorem ipsum.");
 	private static final Figure PROMENADE    = new Figure("Promenade",    "Lorem ipsum.");
 	private static final Figure CHASSE       = new Figure("Chassé",       "Lorem ipsum.");
-	private static final Figure WHISK        = new Figure("Whisk",  Arrays.asList(PROMENADE, CHASSE));
+	private static final Figure WHISK        = new Figure("Whisk", Arrays.asList(PROMENADE, CHASSE));
 
 	public static final LatinDance    JIVE      = new LatinDance(   "Jive",      "4/4", Arrays.asList(BASIC_MOVE));
 	public static final LatinDance    RUMBA     = new LatinDance(   "Rumba",     "4/4", Arrays.asList(BASIC_MOVE, FAN));
