@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>800</x>
+      <y>310</y>
+      <w>340</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>*Dance*
+--
+- name: String
+- beat: String
+- figures: Figure[*]
+--
++ Dance(name: String, beat: String)
++ Dance(name: String, beat: String, figures: Figure[*])
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>380</x>
+      <y>310</y>
+      <w>280</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>*Figure*
+--
+- name: String
+- description: String
+- parts: Figure[*]
+--
++ Figure(name: String, description: String)
++ Figure(name: String, parts: figure[*])
++ add(figure: Figure): boolean
+- contains(figure: Figure): boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>870</x>
+      <y>510</y>
+      <w>390</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>*LatinDance*
+--
+--
++ LatinDance(name: String, beat: String)
++ LatinDance(name: String, beat: String, figures: Figure[*])
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>450</x>
+      <y>510</y>
+      <w>410</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>*StandardDance*
+--
+--
++ StandardDance(name: String, beat: String)
++ StandardDance(name: String, beat: String, figures: Figure[*])
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>650</x>
+      <y>360</y>
+      <w>170</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;
+r1=- figures
+m1=*</panel_attributes>
+    <additional_attributes>10.0;20.0;150.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>610</x>
+      <y>260</y>
+      <w>140</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-&gt;&gt;&gt;&gt;
+r1=- parts
+m1=*</panel_attributes>
+    <additional_attributes>50.0;70.0;120.0;70.0;120.0;10.0;10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1050</x>
+      <y>420</y>
+      <w>30</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>820</x>
+      <y>420</y>
+      <w>30</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+</diagram>

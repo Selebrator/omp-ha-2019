@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1090</x>
+      <y>300</y>
+      <w>190</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>_waltz: StandardDance_
+--
+name: "Waltz"
+beat: "3/4"</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>690</x>
+      <y>300</y>
+      <w>190</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>_tango: StandardDance_
+--
+name: "Tango"
+beat: "4/4"</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>890</x>
+      <y>300</y>
+      <w>190</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>_quickstep: StandardDance_
+--
+name: "Quickstep"
+beat: "4/4"</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>300</y>
+      <w>190</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>_chaChaCha: LatinDance_
+--
+name: "ChaChaCha"
+beat: "4/4"</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>290</x>
+      <y>300</y>
+      <w>190</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>_rumba: LatinDance_
+--
+name: "Rumba"
+beat: "4/4"</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>90</x>
+      <y>300</y>
+      <w>190</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>_jive: LatinDance_
+--
+name: "Jive"
+beat: "4/4"</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>110</y>
+      <w>190</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>_basicMove: Figure_
+--
+name: "Basic Move"
+desciption: "Lorem ipsum."</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1190</x>
+      <y>500</y>
+      <w>190</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>_naturalTurn: Figure_
+--
+name: "Natural Turn"
+desciption: "Lorem ipsum."</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>960</x>
+      <y>500</y>
+      <w>190</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>_spinTurn: Figure_
+--
+name: "Spin Turn"
+desciption: "Lorem ipsum."</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>690</x>
+      <y>500</y>
+      <w>190</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>_promenade: Figure_
+--
+name: "Promenade"
+desciption: "Lorem ipsum."</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>760</x>
+      <y>650</y>
+      <w>190</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>_chasse: Figure_
+--
+name: "Chassé"
+desciption: "Lorem ipsum."</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>390</x>
+      <y>490</y>
+      <w>190</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>_fan: Figure_
+--
+name: "Fan"
+desciption: "Lorem ipsum."</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1090</x>
+      <y>610</y>
+      <w>190</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>_whisk: Figure_
+--
+name: "Whisk"</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>940</x>
+      <y>640</y>
+      <w>170</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=-
+r1=parts</panel_attributes>
+    <additional_attributes>10.0;20.0;150.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1210</x>
+      <y>350</y>
+      <w>70</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=-
+r1=figures</panel_attributes>
+    <additional_attributes>10.0;150.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1110</x>
+      <y>350</y>
+      <w>70</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=-
+r1=figures</panel_attributes>
+    <additional_attributes>10.0;150.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>220</x>
+      <y>110</y>
+      <w>340</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>lt=-
+r1=figures</panel_attributes>
+    <additional_attributes>320.0;20.0;10.0;20.0;10.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>770</x>
+      <y>350</y>
+      <w>70</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=-
+r1=figures</panel_attributes>
+    <additional_attributes>10.0;150.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>720</x>
+      <y>130</y>
+      <w>230</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=-
+r1=figures</panel_attributes>
+    <additional_attributes>10.0;20.0;210.0;20.0;210.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1010</x>
+      <y>350</y>
+      <w>70</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=-
+r1=figures</panel_attributes>
+    <additional_attributes>10.0;150.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>430</x>
+      <y>350</y>
+      <w>70</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=-
+r1=figures</panel_attributes>
+    <additional_attributes>10.0;140.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>160</y>
+      <w>70</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=-
+r1=figures</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>520</x>
+      <y>350</y>
+      <w>70</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=-
+r1=figures</panel_attributes>
+    <additional_attributes>10.0;140.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>700</x>
+      <y>160</y>
+      <w>70</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>lt=-
+r1=figures</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1160</x>
+      <y>350</y>
+      <w>70</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>lt=-
+r1=figures</panel_attributes>
+    <additional_attributes>10.0;260.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>820</x>
+      <y>550</y>
+      <w>290</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=-
+r1=parts</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0;270.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>400</x>
+      <y>140</y>
+      <w>160</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=-
+r1=figures</panel_attributes>
+    <additional_attributes>140.0;20.0;10.0;20.0;10.0;160.0</additional_attributes>
+  </element>
+</diagram>
