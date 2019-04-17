@@ -20,6 +20,10 @@ public class DanceDatabase {
 	public static final StandardDance WALTZ     = new StandardDance("Waltz",     "3/4", Arrays.asList(NATURAL_TURN, SPIN_TURN, WHISK));
 
 	public static void main(String[] args) {
-		//unnötig
+		/*
+		 * unnötig! Wenn die Instanzen in der main Methode angelegt würden,
+		 * könnte man sie niche von ausßen verwenden, dann währe also
+		 * die funktion einer Datenbank nicht gewährleistet
+		 */
 	}
 }
