@@ -23,7 +23,7 @@ public class DanceDatabase {
 		/*
 		 * Unnötig! Wenn die Instanzen in der main Methode angelegt würden,
 		 * könnte man sie nicht von außen verwenden, dann wäre also
-		 * die Funktion einer Datenbank nicht gewährleistet.
+		 * die Funktion einer Datenbank nicht gewährleistet :(
 		 */
 	}
 }
