@@ -21,9 +21,9 @@ public class DanceDatabase {
 
 	public static void main(String[] args) {
 		/*
-		 * unnötig! Wenn die Instanzen in der main Methode angelegt würden,
-		 * könnte man sie niche von ausßen verwenden, dann währe also
-		 * die funktion einer Datenbank nicht gewährleistet
+		 * Unnötig! Wenn die Instanzen in der main Methode angelegt würden,
+		 * könnte man sie nicht von außen verwenden, dann wäre also
+		 * die Funktion einer Datenbank nicht gewährleistet.
 		 */
 	}
 }
