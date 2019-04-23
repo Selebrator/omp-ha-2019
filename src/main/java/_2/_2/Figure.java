@@ -78,15 +78,4 @@ public class Figure {
 		}
 		this.parts = parts;
 	}
-
-//TODO remove
-//	@Override
-//	public String toString() {
-//		final StringBuilder sb = new StringBuilder();
-//		sb.append(name);
-//		if(parts != null) {
-//			sb.append(": ").append(parts);
-//		}
-//		return sb.toString();
-//	}
 }

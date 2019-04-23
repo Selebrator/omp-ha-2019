@@ -43,15 +43,4 @@ public class Dance {
 	public void setFigures(List<Figure> figures) {
 		this.figures = figures;
 	}
-
-//TODO remove
-//	@Override
-//	public String toString() {
-//		final StringBuilder sb = new StringBuilder(this.getClass().getSimpleName());
-//		sb.append(" ");
-//		sb.append(name);
-//		sb.append(" (").append(beat).append(") ");
-//		sb.append(figures);
-//		return sb.toString();
-//	}
 }
