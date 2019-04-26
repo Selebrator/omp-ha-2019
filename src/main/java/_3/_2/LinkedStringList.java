@@ -1,4 +1,4 @@
-package _3._1._2;
+package _3._2;
 
 public class LinkedStringList {
 
