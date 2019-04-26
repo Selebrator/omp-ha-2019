@@ -1,7 +1,7 @@
 package _3._1;
 
 public class Banking {
-	
+
 	public static void main(String[] args) {
 		Bank sbt = new Bank("Smaug Bank & Trust");
 		sbt.setAccounts(new Account[1]);
@@ -21,7 +21,7 @@ public class Banking {
 		work.setPostCode("54321");
 		work.setCity("Erebor");
 		thorin.setWorkAddress(work);
-		sbt.getAccounts()[0].setHolders(new Customer[] { thorin });
+		sbt.getAccounts()[0].setHolders(new Customer[]{thorin});
 	}
 
 }

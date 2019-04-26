@@ -14,17 +14,13 @@ public class Out {
         System.out.println(d);
     }
 
-    public static void out(char c) {
-        System.out.println(c);
-    }
+    public static void out(char c) { System.out.println(c); }
 
     public static void out(String s) {
         System.out.println(s);
     }
 
-    public static void out(Object o) {
-        System.out.println(o);
-    }
+    public static void out(Object o) { System.out.println(o); }
 
 
 }
