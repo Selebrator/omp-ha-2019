@@ -11,12 +11,12 @@ public class Banking {
 		thorin.setAccounts(new Account[1]);
 		thorin.getAccounts()[0] = sbt.getAccounts()[0];
 		thorin.setName("Thorin");
-		Address home = new Address();
+		HomeAddress home = new HomeAddress();
 		home.setStreet("Kingsroad 1");
 		home.setPostCode("12345");
 		home.setCity("Dunland");
 		thorin.setHomeAddress(home);
-		Address work = new Address();
+		WorkAddress work = new WorkAddress("Evil Corp");
 		work.setStreet("Throneroom 1");
 		work.setPostCode("54321");
 		work.setCity("Erebor");
