@@ -37,6 +37,6 @@ task abgabe(type: Zip) {
             include "java/provided/*"
             include "java/provided/_$n/**/*"
         }
-        archiveName "omp-uebung${n}-NichtNoNiet.zip"
+        archiveName "omp-uebung${n}-NeinNoNiet.zip"
     }
 }
