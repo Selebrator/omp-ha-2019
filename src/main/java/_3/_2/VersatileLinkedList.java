@@ -1,5 +1,7 @@
 package _3._2;
 
+import provided._3._2.LinkedStringList;
+
 public class VersatileLinkedList extends LinkedStringList {
 
 	public void add(int value) {
