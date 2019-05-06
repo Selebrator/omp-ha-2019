@@ -5,12 +5,12 @@ public class SquareFunction extends Function {
 		super();
 	}
 
-	public SquareFunction(Function predecessor) {
-		super(predecessor);
+	public SquareFunction(Function inner) {
+		super(inner);
 	}
 
 	@Override
-	protected double apply(double x) {
+	public double apply(double x) {
 		return x * x;
 	}
 }

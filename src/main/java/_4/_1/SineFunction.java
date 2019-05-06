@@ -5,8 +5,8 @@ public class SineFunction extends Function {
 		super();
 	}
 
-	public SineFunction(Function predecessor) {
-		super(predecessor);
+	public SineFunction(Function inner) {
+		super(inner);
 	}
 
 	@Override
