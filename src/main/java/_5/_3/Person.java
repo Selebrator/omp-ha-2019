@@ -1,23 +1,24 @@
 package _5._3;
 
-public class Person<T extends Older> implements Older<T> {
-    private String name;
-    private int age;
+public class Person implements Older<Person> {
+	private String name;
+	private int age;
 
-    public Person(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
+	public Person(String name, int age) {
+		this.name = name;
+		this.age = age;
+	}
 
-    public int getAge() {
-        return age;
-    }
+	@Override
+	public boolean isOlder(Person other) {
+		return this.getAge() > other.getAge();
+	}
 
-    public String getName() {
-        return name;
-    }
+	public int getAge() {
+		return this.age;
+	}
 
-    public boolean isOlder(T other) {
-        return this.age > other.getAge();
-    }
+	public String getName() {
+		return this.name;
+	}
 }
