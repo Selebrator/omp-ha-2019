@@ -1,6 +1,6 @@
-package _5._2.alternative.bill;
+package _5._2.bill;
 
-import _5._2.alternative.car.CarComponent;
+import _5._2.car.CarComponent;
 
 import java.util.LinkedList;
 import java.util.List;

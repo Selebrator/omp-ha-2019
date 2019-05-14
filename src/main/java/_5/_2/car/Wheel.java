@@ -1,4 +1,4 @@
-package _5._2.alternative.car;
+package _5._2.car;
 
 public class Wheel extends Car.CarPart {
 	public Wheel() {
