@@ -1,0 +1,4 @@
+A Menge alles Großbuchstaben
+REGENWETTER
+Menge: {R,R,E,E,E,G,N,W,T,T} oder {R,E,G,N,W,T}
+Multimenge: {(R,2), (E,3), (G,1), (N,1), (W,1), (T,2)}

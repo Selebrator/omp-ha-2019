@@ -1,0 +1,17 @@
+try {
+// ...
+} catch (GenericException <Integer > e) {
+// ...
+} catch (GenericException <Double > e) {
+// ...
+}
+Das funktioniert nicht zur Laufzeit, da Aufgrund von Type Erasure
+wir zwei gleiche catch hätten.
+
+try {
+throw new GenericException <Number >();
+} catch (GenericException <Integer > e) {
+// ...
+}
+
+Auch hier funktioniert das nicht zur Laufzeit aufgrund von Tyüpe Erasure.
