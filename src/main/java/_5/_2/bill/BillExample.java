@@ -1,8 +1,8 @@
-package _5._2.alternative.bill;
+package _5._2.bill;
 
-import _5._2.alternative.car.Motor;
-import _5._2.alternative.car.Seat;
-import _5._2.alternative.car.Wheel;
+import _5._2.car.Motor;
+import _5._2.car.Seat;
+import _5._2.car.Wheel;
 
 public class BillExample {
 	public static void main(String[] args) {

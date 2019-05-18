@@ -1,4 +1,4 @@
-package _5._2.alternative.car;
+package _5._2.car;
 
 public class Motor extends Car.CarPart {
 	public Motor() {
