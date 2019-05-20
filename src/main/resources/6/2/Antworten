@@ -1,0 +1,18 @@
+try {
+	// ...
+} catch(GenericException<Integer> e) {
+	// ...
+} catch(GenericException<Double> e) {
+	// ...
+}
+Wegen type erasure haben beide catch handler zur Laufzeit die gleiche Signatur.
+
+
+try {
+	throw new GenericException<Number>();
+} catch(GenericException<Integer> e) {
+	// ...
+}
+
+Generics sind invariant, d.h ein Objekt vom Typ GenericException<Number> kann keiner
+Objektvariable vom Typ GenericException<Integer> zugewiesen werden.
