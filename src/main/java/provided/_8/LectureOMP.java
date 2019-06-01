@@ -11,9 +11,9 @@ public class LectureOMP {
 			Lecture omp = Lecture.load("omp.dat");
 			System.out.println(omp);
 			// task 2
-			//Lecture.saveText("omp.txt", omp);
-			//omp = Lecture.loadText("omp.txt");
-			//System.out.println(omp);
+			Lecture.saveText("omp.txt", omp);
+			omp = Lecture.loadText("omp.txt");
+			System.out.println(omp);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
