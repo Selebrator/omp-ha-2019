@@ -1,9 +1,8 @@
 package _8;
 
-import java.io.DataInputStream;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import _8.io.SonWriter;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.nio.file.Files;
@@ -160,7 +159,7 @@ public class Lecture {
         List<Lecturer> lecturers = data.getLecturers();
         StringJoiner sjLect = new StringJoiner(",\n");
         for (Lecturer l : lecturers) {
-            sjLect.add("\t\t{\n\t\t firstname: " + l.getFirstName() + ",\n\t\t" + " lastname: " + l.getLastName() + "\n\t\t}");
+            sjLect.add("\t\t{\n\t\t firstName: " + l.getFirstName() + ",\n\t\t" + " lastName: " + l.getLastName() + "\n\t\t}");
         }
         sb.append(sjLect.toString()).append("\n\t],\n");
 
@@ -173,7 +172,7 @@ public class Lecture {
             for (String t : topics) {
                 sjTopics.add("\n\t\t  " + t);
             }
-            sjSched.add("\t\t{\n\t\t time: " + s.getYear() + "-" + s.getMonth() + "-" + s.getDay() + " " + s.getHour() + ", " + "\n\t\t " + "lectureHall: " + s.getLectureHall() + ",\n\t\t topics: [" + sjTopics + "\n\t\t ]\n\t\t}");
+            sjSched.add("\t\t{\n\t\t time: " + s.getYear() + "-" + s.getMonth() + "-" + s.getDay() + " " + s.getHour() + ":00, " + "\n\t\t " + "lectureHall: " + s.getLectureHall() + ",\n\t\t topics: [" + sjTopics + "\n\t\t ]\n\t\t}");
         }
         sb.append(sjSched.toString()).append("\n\t]");
         sb.append("\n}");
@@ -217,12 +216,12 @@ public class Lecture {
                 if (l.contains("{")) {
                     numberOfLecturers++;
                     lecturers.add(new Lecturer());
-                } else if (l.contains("firstname: ")) {
-                    String firstnameLine = splitIdentifier(l, "firstname: ");
-                    lecturers.get(numberOfLecturers-1).setFirstName(firstnameLine);
-                } else if (l.contains("lastname: ")) {
-                    String lastnameLine = splitIdentifier(l, "lastname: ");
-                    lecturers.get(numberOfLecturers-1).setLastName(lastnameLine);
+                } else if (l.contains("firstName: ")) {
+                    String firstNameLine = splitIdentifier(l, "firstName: ");
+                    lecturers.get(numberOfLecturers-1).setFirstName(firstNameLine);
+                } else if (l.contains("lastName: ")) {
+                    String lastNameLine = splitIdentifier(l, "lastName: ");
+                    lecturers.get(numberOfLecturers-1).setLastName(lastNameLine);
                 } else if (l.contains("]")) {
                     lecturersFlag = false;
                 }
@@ -237,7 +236,7 @@ public class Lecture {
                     schedule.get(numberOfDates-1).setMonth(Integer.parseInt(time[1]));
                     String[] time2 = time[2].split(" ");
                     schedule.get(numberOfDates-1).setDay(Integer.parseInt(time2[0]));
-                    schedule.get(numberOfDates-1).setHour(Integer.parseInt(time2[1]));
+                    schedule.get(numberOfDates-1).setHour(Integer.parseInt(time2[1].split(":")[0]));
                 } else if (l.contains("lectureHall: ")) {
                     String lectureHallLine = splitIdentifier(l, "lectureHall: ");
                     schedule.get(numberOfDates-1).setLectureHall(lectureHallLine);
@@ -265,4 +264,46 @@ public class Lecture {
         result = result[1].split(",");
         return result[0];
     }
+
+	public static void saveText2(String filename, Lecture data) throws IOException {
+		Path file = Paths.get(filename);
+		try(SonWriter out = new SonWriter(Files.newBufferedWriter(file))) {
+			Lecture.saveSon(out, data);
+		}
+	}
+
+	public static void saveSon(SonWriter out, Lecture lecture) throws IOException {
+		out.beginObject();
+		out.name("number").value(lecture.getNumber());
+		out.name("title").value(lecture.getTitle());
+		out.name("shortTitle").value(lecture.getShortTitle());
+		out.name("semester").value(lecture.getSemester());
+
+		out.name("lecturers").beginArray();
+		for(Lecturer lecturer : lecture.getLecturers()) {
+			out.beginObject();
+			out.name("firstName").value(lecturer.getFirstName());
+			out.name("lastName").value(lecturer.getLastName());
+			out.endObject();
+		}
+		out.endArray();
+
+		out.name("schedule").beginArray();
+		for(Date date : lecture.getSchedule()) {
+			out.beginObject();
+			out.name("time").value(date.getYear() + "-" + date.getMonth() + "-" + date.getDay() + " " + date.getHour() + ":00");
+			out.name("lectureHall").value(date.getLectureHall());
+
+			out.name("topics").beginArray();
+			for(String topic : date.getTopics()) {
+				out.value(topic);
+			}
+			out.endArray();
+
+			out.endObject();
+		}
+		out.endArray();
+
+		out.endObject();
+	}
 }
