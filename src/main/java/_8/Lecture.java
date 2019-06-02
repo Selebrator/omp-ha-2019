@@ -231,12 +231,8 @@ public class Lecture {
                     schedule.add(new Date());
                 } else if (l.contains("time: ")) {
                     String timeLine = splitIdentifier(l, "time: ");
-                    String[] time = timeLine.split("-");
-                    schedule.get(numberOfDates-1).setYear(Integer.parseInt(time[0]));
-                    schedule.get(numberOfDates-1).setMonth(Integer.parseInt(time[1]));
-                    String[] time2 = time[2].split(" ");
-                    schedule.get(numberOfDates-1).setDay(Integer.parseInt(time2[0]));
-                    schedule.get(numberOfDates-1).setHour(Integer.parseInt(time2[1].split(":")[0]));
+					Date currentDate = schedule.get(numberOfDates - 1);
+					applyDate(currentDate, timeLine);
                 } else if (l.contains("lectureHall: ")) {
                     String lectureHallLine = splitIdentifier(l, "lectureHall: ");
                     schedule.get(numberOfDates-1).setLectureHall(lectureHallLine);
@@ -264,6 +260,24 @@ public class Lecture {
         result = result[1].split(",");
         return result[0];
     }
+
+	/*
+	 * parse a date of the form 'YYYY-MM-DD h:00'
+	 * changes scheduleEntry even if an exception is thrown.
+	 */
+	private static void applyDate(Date scheduleEntry, String date) {
+		try {
+			String[] split = date.split(" ", 2);
+			String[] dateSplit = split[0].split("-");
+			String[] timeSplit = split[1].split(":");
+			scheduleEntry.setYear(Integer.parseInt(dateSplit[0]));
+			scheduleEntry.setMonth(Integer.parseInt(dateSplit[1]));
+			scheduleEntry.setDay(Integer.parseInt(dateSplit[2]));
+			scheduleEntry.setHour(Integer.parseInt(timeSplit[0]));
+		} catch(IndexOutOfBoundsException | NumberFormatException e) {
+			throw new IllegalArgumentException("Malformed date: " + date);
+		}
+	}
 
 	public static void saveText2(String filename, Lecture data) throws IOException {
 		Path file = Paths.get(filename);
