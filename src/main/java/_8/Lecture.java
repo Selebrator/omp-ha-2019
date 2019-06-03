@@ -1,5 +1,6 @@
 package _8;
 
+import _8.io.SonReader;
 import _8.io.SonWriter;
 
 import java.io.*;
@@ -26,6 +27,8 @@ public class Lecture {
         this.shortTitle = shortTitle;
         this.semester = semester;
     }
+
+    public Lecture() {}
 
     public String getNumber() {
         return number;
@@ -320,4 +323,90 @@ public class Lecture {
 
 		out.endObject();
 	}
+
+    public static Lecture loadText2(String filename) throws IOException {
+        Path file = Paths.get(filename);
+        try(SonReader in = new SonReader(Files.newBufferedReader(file))) {
+            return loadSon(in);
+        }
+    }
+
+    public static Lecture loadSon(SonReader in) throws IOException {
+        in.beginObject();
+        Lecture lecture = new Lecture();
+        while(in.hasNext()) {
+            switch(in.nextName()) {
+                case "number":
+                    lecture.setNumber(in.nextValue());
+                    break;
+                case "title":
+                    lecture.setTitle(in.nextValue());
+                    break;
+                case "shortTitle":
+                    lecture.setShortTitle(in.nextValue());
+                    break;
+                case "semester":
+                    lecture.setSemester(in.nextValue());
+                    break;
+                case "lecturers":
+                    in.beginArray();
+                    while(in.hasNext()) {
+                        in.beginObject();
+                        Lecturer lecturer = new Lecturer();
+                        while(in.hasNext()) {
+                            switch(in.nextName()) {
+                                case "firstName":
+                                    lecturer.setFirstName(in.nextValue());
+                                    break;
+                                case "lastName":
+                                    lecturer.setLastName(in.nextValue());
+                                    break;
+                                default:
+                                    in.skipValue();
+                                    break;
+                            }
+                        }
+                        in.endObject();
+                        lecture.addLecturers(lecturer);
+                    }
+                    in.endArray();
+                    break;
+                case "schedule":
+                    in.beginArray();
+                    while(in.hasNext()) {
+                        in.beginObject();
+                        Date scheduleEntry = new Date();
+                        while(in.hasNext()) {
+                            switch(in.nextName()) {
+                                case "time":
+                                    applyDate(scheduleEntry, in.nextValue());
+                                    break;
+                                case "lectureHall":
+                                    scheduleEntry.setLectureHall(in.nextValue());
+                                    break;
+                                case "topics":
+                                    in.beginArray();
+                                    while(in.hasNext()) {
+                                        scheduleEntry.addTopics(in.nextValue());
+                                    }
+                                    in.endArray();
+                                    break;
+                                default:
+                                    in.skipValue();
+                                    break;
+                            }
+                        }
+                        in.endObject();
+                        lecture.addSchedule(scheduleEntry);
+                    }
+                    in.endArray();
+                    break;
+                default:
+                    in.skipValue();
+                    break;
+            }
+        }
+        in.endObject();
+        return lecture;
+    }
 }
