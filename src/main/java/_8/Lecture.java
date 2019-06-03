@@ -282,6 +282,31 @@ public class Lecture {
 		}
 	}
 
+    /*
+     * SON - Simple/String Object Notation
+     * (selbst ausgedacht, inspiriert durch JSON)
+     *
+     * SON hat 3 elementare Datentypen: String, Array und Object
+     * Strings sind Zeichenketten die nicht weiter gekenzeichnet werden.
+     * Sie sollten keine der Kontrollzeichen {[]},: enthalten.
+     * Ein String endet mit einem : wenn es ein name ist oder mit
+     * einem , wenn es ein value ist. Sie haben keinen
+     * whitespace am Anfang und Ende. Zwischen den daten kann
+     * beliebig viel (unregelmäßiger) whitespace, also Leerzeichen,
+     * Tabulatoren und Zeilenumbrüche sein.
+     *
+     * Arrays sind Listen aus beliebigen SON Datenstrukturen,
+     * getrennt durch , und eingeschlossen in []. Beispiel:
+     * [1, 2, a, hello, [inner, array]]
+     *
+     * Objects enthalten eine Zuordnung von name zu value. Der name
+     * ist dabei ein string, und value eine beliebige SON Datenstruktur.
+     * Name und value sind durch : getrennt und name-value Paare
+     * sind durch , getrennt. Ein Object ist in {} eingeschlossen. Beispiel:
+     * {hello: world, a:[1, {foo:bar}]}
+     *
+     */
+
 	public static void saveText2(String filename, Lecture data) throws IOException {
 		Path file = Paths.get(filename);
 		try(SonWriter out = new SonWriter(Files.newBufferedWriter(file))) {

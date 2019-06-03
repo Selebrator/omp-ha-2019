@@ -90,7 +90,7 @@ public class SonReader implements Closeable {
 		do {
 			name.append((char) c);
 		} while((c = this.eofRead()) != ':');
-		return name.toString();
+		return name.toString().trim();
 	}
 
 	private void prepareName() throws IOException {
