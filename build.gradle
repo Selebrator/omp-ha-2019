@@ -9,7 +9,7 @@ compileJava.options.encoding = 'UTF-8'
 
 project.ext.junitVersion = '5.3.1'
 
-mainClassName = '_9.HelloWorld'
+mainClassName = '_9._1.ColorMixer'
 
 sourceCompatibility = 1.8
 
