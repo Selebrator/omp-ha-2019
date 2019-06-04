@@ -56,6 +56,7 @@ public class SonReader implements Closeable {
 		}
 	}
 
+	/* true untill the current inner most array or object is out of elements */
 	public boolean hasNext() throws IOException {
 		int c = this.nextNonWhitespace();
 		this.rememberChar(c);
@@ -93,6 +94,7 @@ public class SonReader implements Closeable {
 		return name.toString().trim();
 	}
 
+	/* put the reder in a state where it can accept a name */
 	private void prepareName() throws IOException {
 		SonState state = this.peekState();
 		if(state == NONEMPTY_OBJECT) { // not first in an object
@@ -104,6 +106,8 @@ public class SonReader implements Closeable {
 		this.replaceTopState(DANGLING_NAME);
 	}
 
+	/* put the reder in a state where it can accept a value
+	 */
 	private void prepareValue() throws IOException {
 		SonState state = this.peekState();
 		switch(state) {
@@ -136,6 +140,8 @@ public class SonReader implements Closeable {
 		return value.toString().trim();
 	}
 
+	/* should recursively skip a value */
+	//TODO funktioniert nicht so wie es soll
 	public void skipValue() throws IOException {
 		this.prepareValue();
 		int count = 0;

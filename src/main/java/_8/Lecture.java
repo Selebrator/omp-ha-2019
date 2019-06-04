@@ -184,6 +184,18 @@ public class Lecture {
         Files.write(file, lines);
     }
 
+		/*
+		 * Bitte um Feedback, untere lösung (loadText2)
+		 * macht weniger Annahmen.
+		 *
+		 * Zeilenumbrüche zwischen name-value Paaren.
+		 * Whitespace weglassen macht probleme. Ist kompatibel mit
+		 * dem outout von saveText.
+		 * Nur eine Lecture pro Datei.
+		 *
+		 *
+		 *
+		 */
     public static Lecture loadText(String filename) throws IOException {
         Path file = Paths.get(filename);
         List<String> data = Files.readAllLines(file);
