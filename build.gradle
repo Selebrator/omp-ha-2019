@@ -1,9 +1,15 @@
-apply plugin: 'java'
-apply plugin: 'idea'
+plugins {
+    id 'java'
+    id 'idea'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.7'
+}
 
 compileJava.options.encoding = 'UTF-8'
 
 project.ext.junitVersion = '5.3.1'
+
+mainClassName = '_9._2.Lights'
 
 sourceCompatibility = 1.8
 
@@ -16,12 +22,17 @@ dependencies {
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
 }
 
+javafx {
+    version = "12.0.1"
+    modules = [ 'javafx.controls' ]
+}
+
 test {
     useJUnitPlatform()
 }
 
 task abgabe(type: Zip) {
-    if(project.hasProperty("n")) {
+    if (project.hasProperty("n")) {
         includeEmptyDirs = false
         from(".")
         from("src/main/") {
@@ -32,7 +43,7 @@ task abgabe(type: Zip) {
         }
         include "java/_$n/**/*"
         include "resources/$n/**/*"
-        if(!project.hasProperty("p")) {
+        if (!project.hasProperty("p")) {
             include "README.md"
             include "java/provided/*"
             include "java/provided/_$n/**/*"
