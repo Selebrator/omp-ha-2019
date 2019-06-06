@@ -1,8 +1,6 @@
 package _9._2;
 
 import javafx.application.Application;
-import javafx.collections.ObservableList;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
@@ -15,48 +13,40 @@ import java.util.Optional;
 public class Lights extends Application {
 
 	private static final int DEFAULT_SIZE = 4;
-	private static final int GAP = 2;
 	private static final Paint ON = Color.YELLOW;
 	private static final Paint OFF = Color.WHITE;
 
 	@Override
-	public void start(Stage primaryStage) throws Exception {
+	public void start(Stage primaryStage) {
 		final int size = Optional.ofNullable(this.getParameters().getNamed().get("size"))
 				.map(Integer::parseInt).orElse(DEFAULT_SIZE);
+		Rectangle[][] positions = new Rectangle[size][size];
 		GridPane grid = new GridPane();
 		Scene scene = new Scene(grid, 600, 600);
-		scene.setFill(Color.BLACK);
-		grid.setHgap(GAP);
-		grid.setVgap(GAP);
-		for(int x = 0; x < size; x++) {
-			for(int y = 0; y < size; y++) {
-				Rectangle rec = new Rectangle(150, 150);
-				rec.heightProperty().bind(scene.heightProperty().subtract(size * GAP).divide(size));
-				rec.widthProperty().bind(scene.widthProperty().subtract(size * GAP).divide(size));
-				rec.setFill(OFF);
-				grid.add(rec, x, y);
-			}
-		}
-		for(int x = 0; x < size; x++) {
-			for(int y = 0; y < size; y++) {
-				Rectangle rec = getNodeByRowColumnIndex(x, y, grid);
-				assert rec != null;
-				Rectangle up = getNodeByRowColumnIndex(x, y - 1, grid);
-				Rectangle down = getNodeByRowColumnIndex(x, y + 1, grid);
-				Rectangle left = getNodeByRowColumnIndex(x - 1, y, grid);
-				Rectangle right = getNodeByRowColumnIndex(x + 1, y, grid);
-				rec.setOnMouseClicked(event -> {
-					toggle(rec);
-					toggle(up);
-					toggle(down);
-					toggle(left);
-					toggle(right);
-				});
-			}
-		}
-
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Lights");
+
+		for(int row = 0; row < size; row++) {
+			for(int column = 0; column < size; column++) {
+				Rectangle rec = new Rectangle();
+				rec.setFill(OFF);
+				rec.setStroke(Color.BLACK);
+				rec.heightProperty().bind(scene.heightProperty().divide(size).subtract(1)); // -1 for stroke
+				rec.widthProperty().bind(scene.widthProperty().divide(size).subtract(1));
+				{
+					final int x = row, y = column;
+					rec.setOnMouseClicked(event -> {
+						toggle(rec);
+						toggle(getMatrixIndexSafe(positions, x, y - 1));
+						toggle(getMatrixIndexSafe(positions, x, y + 1));
+						toggle(getMatrixIndexSafe(positions, x - 1, y));
+						toggle(getMatrixIndexSafe(positions, x + 1, y));
+					});
+				}
+				grid.add(rec, row, column);
+				positions[row][column] = rec;
+			}
+		}
 		primaryStage.show();
 	}
 
@@ -74,14 +64,10 @@ public class Lights extends Application {
 		}
 	}
 
-	public static <T extends Node> T getNodeByRowColumnIndex(final int column, final int row, GridPane gridPane) {
-		ObservableList<Node> children = gridPane.getChildren();
-		for(Node node : children) {
-			if(GridPane.getRowIndex(node) == row && GridPane.getColumnIndex(node) == column) {
-				return (T) node;
-			}
-		}
-		return null;
+	private static <T> T getMatrixIndexSafe(final T[][] positions, final int row, final int column) {
+		return (0 <= row && row < positions.length) && (0 <= column && column < positions[row].length)
+				? positions[row][column]
+				: null;
 	}
 
 	public static void main(String[] args) {
