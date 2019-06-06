@@ -1,11 +1,10 @@
 package _9._3;
 
-import provided._9.Observer;
+import _9._3.observer.Observer;
 
-public class ShipLog implements Observer {
-    private int heading = 0;
+public class ShipLog implements Observer<Ship, ShipEvent> {
     @Override
-    public void update(Observable who, ShipEvent what) {
+    public void update(Ship who, ShipEvent what) {
         switch (what) {
             case SET_SAILS:
                 System.out.println("Sails set.");
@@ -20,12 +19,10 @@ public class ShipLog implements Observer {
                 System.out.println("Cannons fired.");
                 break;
             case TURN_LEFT:
-                heading = (heading - 90) % 180;
-                System.out.println("Turned left. New heading " + heading + " degrees.");
+                System.out.println("Turned left. New heading " + who.getHeading() + " degrees.");
                 break;
             case TURN_RIGHT:
-                heading = (heading + 90) % 180;
-                System.out.println("Turned right. New heading " + heading + " degrees.");
+                System.out.println("Turned right. New heading " + who.getHeading() + " degrees.");
                 break;
         }
     }

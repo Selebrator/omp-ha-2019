@@ -1,6 +1,6 @@
 package _9._3;
 
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public enum ShipEvent {
 	
@@ -13,7 +13,6 @@ public enum ShipEvent {
 	TURN_RIGHT;
 
 	public static ShipEvent getRandomShipEvent() {
-		Random random = new Random();
-		return values()[random.nextInt(values().length)];
+		return values()[ThreadLocalRandom.current().nextInt(values().length)];
 	}
 }
