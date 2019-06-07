@@ -38,7 +38,11 @@ public class Ship extends Observable {
     }
 
     public void turnLeft() {
-        heading = (heading - 90) % 180;
+        if (heading - 90 < 0) {
+            heading = 360 + ((heading - 90) % 360);
+        } else {
+            heading = (heading - 90) % 360;
+        }
         this.setChanged();
         notifyObservers(ShipEvent.TURN_LEFT);
     }
