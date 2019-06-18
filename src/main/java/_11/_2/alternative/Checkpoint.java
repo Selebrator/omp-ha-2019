@@ -1,13 +1,10 @@
 package _11._2.alternative;
 
-import java.util.concurrent.atomic.AtomicInteger;
-
 public class Checkpoint {
-
-	private static AtomicInteger GATHERED = new AtomicInteger(0);
 
 	private final Object lock = new Object();
 	private int groupSize;
+	private int gathered = 0;
 
 	public Checkpoint(int groupSize) {
 		this.groupSize = groupSize;
@@ -19,10 +16,10 @@ public class Checkpoint {
 	 */
 	public void gather() throws InterruptedException {
 		synchronized(this.lock) {
-			if(GATHERED.incrementAndGet() != this.groupSize) {
+			if(++this.gathered != this.groupSize) {
 				this.lock.wait();
 			} else {
-				GATHERED.set(0);
+				this.gathered = 0;
 				System.out.println("Group gathered");
 				this.lock.notifyAll();
 			}
