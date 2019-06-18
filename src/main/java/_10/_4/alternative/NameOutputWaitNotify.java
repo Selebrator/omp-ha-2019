@@ -1,4 +1,4 @@
-package _10._4.lukas;
+package _10._4.alternative;
 
 // ordered by creation time, deadlocks if any thread in the chain is interrupted.
 public class NameOutputWaitNotify extends Thread {

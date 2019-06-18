@@ -1,4 +1,4 @@
-package _10._4.lukas;
+package _10._4.alternative;
 
 public abstract class NameOutput {
 
