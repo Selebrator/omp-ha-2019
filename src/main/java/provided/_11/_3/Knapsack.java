@@ -1,3 +1,9 @@
+package provided._11._3;
+
+import _11._3.KnapsackDynamic;
+import _11._3.KnapsackGreedy;
+import _11._3.KnapsackRecursive;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
