@@ -11,24 +11,33 @@ import java.util.List;
 
 public class KnapsackGreedy extends Knapsack {
 
-	// descending
-	protected final List<Item> orderedCandidates;
+	private static final Comparator<Item> DESCENDING_ITEM_VALUE_COMPARATOR
+			= Comparator.comparing(Item::getValue).reversed();
 
 	public KnapsackGreedy(int capacity, Collection<Item> candidates) {
 		super(capacity, candidates);
-		this.orderedCandidates = new ArrayList<>(this.candidates);
-		this.orderedCandidates.sort(Comparator.comparing(Item::getValue).reversed());
 	}
 
 	@Override
 	public Selection pack() {
+		final List<Item> orderedCandidates = new ArrayList<>(this.candidates);
+		orderedCandidates.sort(DESCENDING_ITEM_VALUE_COMPARATOR);
+
+		/*
+		 * Fügt das wertvollste Item hinzu, solange es noch passt, geht
+		 * dann zum nächst wertvolleren Item über und wiederholt den Vorgang
+		 * so lange bis kein Item mehr passt.
+		 */
 		Selection selection = new Selection();
-		for(Item candidate : this.orderedCandidates) {
-			while(candidate.getWeight() + selection.getWeight() <= this.capacity) {
+		for(Item candidate : orderedCandidates) {
+			while(selection.getWeight() + candidate.getWeight() <= this.capacity) {
 				selection = new Selection(selection, candidate);
+				/*
+				 * Der Speicher leidet hier sehr,
+				 * weil Selection#add(Item) private ist.
+				 */
 			}
 		}
 		return selection;
 	}
-
 }

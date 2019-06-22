@@ -17,16 +17,18 @@ public class KnapsackDynamic extends Knapsack {
 		return this.pack(new Selection(), new HashMap<>());
 	}
 
-	private Selection pack(Selection me, Map<Integer, Selection> mem) {
-		return mem.computeIfAbsent(me.getWeight(), weight -> {
-			Collection<Selection> children = new ArrayList<>();
+	private Selection pack(Selection parent, Map<Integer, Selection> memory) {
+		return memory.computeIfAbsent(parent.getWeight(), weight -> {
+			final Collection<Selection> children = new ArrayList<>();
 			for(Item candidate : this.candidates) {
-				if(candidate.getWeight() + me.getWeight() <= this.capacity) {
-					children.add(pack(new Selection(me, candidate), mem));
+				if(parent.getWeight() + candidate.getWeight() <= this.capacity) {
+					children.add(pack(new Selection(parent, candidate), memory));
 				}
 			}
 
-			return children.stream().max(Comparator.comparingDouble(Selection::getValue)).orElse(me);
+			return children.stream()
+					.max(Comparator.comparingDouble(Selection::getValue))
+					.orElse(parent);
 		});
 	}
 

@@ -19,15 +19,17 @@ public class KnapsackRecursive extends Knapsack {
 		return this.pack(new Selection());
 	}
 
-	private Selection pack(Selection me) {
-		Collection<Selection> children = new ArrayList<>();
+	private Selection pack(Selection parent) {
+		final Collection<Selection> children = new ArrayList<>();
 		for(Item candidate : this.candidates) {
-			if(candidate.getWeight() + me.getWeight() <= this.capacity) {
-				children.add(pack(new Selection(me, candidate)));
+			if(parent.getWeight() + candidate.getWeight() <= this.capacity) {
+				children.add(pack(new Selection(parent, candidate)));
 			}
 		}
 
-		return children.stream().max(Comparator.comparingDouble(Selection::getValue)).orElse(me);
+		return children.stream()
+				.max(Comparator.comparingDouble(Selection::getValue))
+				.orElse(parent);
 	}
 
 }
