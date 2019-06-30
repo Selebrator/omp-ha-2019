@@ -15,6 +15,9 @@ public class FibonacciParallelDynamic extends Fibonacci {
 
 	@Override
 	public long calculate(int n) {
+		if(n < 0) {
+			throw new IllegalArgumentException("n must not be negative. Negafibonacci numbers are not supported.");
+		}
 		if(memory.containsKey(n)) {
 			return memory.get(n);
 		}
