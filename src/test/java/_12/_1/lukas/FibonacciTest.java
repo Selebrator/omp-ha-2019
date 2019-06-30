@@ -28,20 +28,32 @@ public class FibonacciTest {
 	}
 
 	@Test
-	void parallelRecursive() {
-		Fibonacci calculator = new FibonacciParallelRecursive();
+	void recursiveParallel() {
+		Fibonacci calculator = new FibonacciRecursiveParallel();
 		NUMBERS.forEach((n, fn) -> Assertions.assertEquals(fn.longValue(), calculator.calculate(n)));
 	}
 
 	@Test
-	void dynamic() {
-		Fibonacci calculator = new FibonacciDynamic();
+	void dynamicRecursivePersistent() {
+		Fibonacci calculator = new FibonacciDynamicRecursivePersistent();
 		NUMBERS.forEach((n, fn) -> Assertions.assertEquals(fn.longValue(), calculator.calculate(n)));
 	}
 
 	@Test
-	void parallelDynamic() {
-		Fibonacci calculator = new FibonacciParallelDynamic();
+	void dynamicRecursivePersistentParallel() {
+		Fibonacci calculator = new FibonacciDynamicRecursivePersistentParallel();
+		NUMBERS.forEach((n, fn) -> Assertions.assertEquals(fn.longValue(), calculator.calculate(n)));
+	}
+
+	@Test
+	void dynamicIterative() {
+		Fibonacci calculator = new FibonacciDynamicIterative();
+		NUMBERS.forEach((n, fn) -> Assertions.assertEquals(fn.longValue(), calculator.calculate(n)));
+	}
+
+	@Test
+	void doubling() {
+		Fibonacci calculator = new FibonacciDoubling();
 		NUMBERS.forEach((n, fn) -> Assertions.assertEquals(fn.longValue(), calculator.calculate(n)));
 	}
 }

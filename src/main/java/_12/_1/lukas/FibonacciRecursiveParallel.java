@@ -2,7 +2,8 @@ package _12._1.lukas;
 
 import provided._12._1.Fibonacci;
 
-public class FibonacciParallelRecursive extends Fibonacci {
+// rest in peace ram
+public class FibonacciRecursiveParallel extends Fibonacci {
 	@Override
 	public long calculate(int n) {
 		if(n < 0) {

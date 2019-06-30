@@ -6,39 +6,50 @@ public class FibonacciTiming {
 	private static final int[] NUMBERS = new int[]{ 3, 5, 8, 12, 9, 18, 15, 10, 7, 11, 20 };
 
 	private static final Fibonacci RECURSIVE = new FibonacciRecursive();
-	private static final Fibonacci PARALLEL_RECURSIVE = new FibonacciParallelRecursive();
-	private static final Fibonacci DYNAMIC = new FibonacciDynamic();
-	private static final Fibonacci PARALLEL_DYNAMIC = new FibonacciParallelDynamic();
+	private static final Fibonacci PARALLEL_RECURSIVE = new FibonacciRecursiveParallel();
+	private static final Fibonacci DYNAMIC = new FibonacciDynamicRecursivePersistent();
+	private static final Fibonacci PARALLEL_DYNAMIC = new FibonacciDynamicRecursivePersistentParallel();
+	private static final Fibonacci ITERATIVE = new FibonacciDynamicIterative();
 
+	// can take a few minutes
 	public static void main(String[] args) {
+		System.out.println("# Sequential");
 		System.out.println("FibonacciRecursive (first): " + formatTime(
-				Timing.measureNanos(() -> runOnNumbers(RECURSIVE))
+				Timing.measureNanos(() -> generateHeat(RECURSIVE))
 		));
-		System.out.println("FibonacciParallelRecursive (first): " + formatTime(
-				Timing.measureNanos(() -> runOnNumbers(PARALLEL_RECURSIVE))
+		System.out.println("FibonacciDynamicRecursivePersistent (first): " + formatTime(
+				Timing.measureNanos(() -> generateHeat(DYNAMIC))
 		));
-		System.out.println("FibonacciDynamic (first): " + formatTime(
-				Timing.measureNanos(() -> runOnNumbers(DYNAMIC))
-		));
-		System.out.println("FibonacciParallelDynamic (first): " + formatTime(
-				Timing.measureNanos(() -> runOnNumbers(PARALLEL_DYNAMIC))
+		System.out.println("FibonacciDynamicIterative (first): " + formatTime(
+				Timing.measureNanos(() -> generateHeat(ITERATIVE))
 		));
 
 		System.out.println("FibonacciRecursive (1M iteration average): " + formatTime(
-				Timing.measureAverageNanos(1000000, () -> runOnNumbers(RECURSIVE))
+				Timing.measureAverageNanos(1_000_000, () -> generateHeat(RECURSIVE))
 		));
-		System.out.println("FibonacciParallelRecursive (4 iteration average): " + formatTime(
-				Timing.measureAverageNanos(4, () -> runOnNumbers(PARALLEL_RECURSIVE))
+		System.out.println("FibonacciDynamicRecursivePersistent (1M iteration average): " + formatTime(
+				Timing.measureAverageNanos(1_000_000, () -> generateHeat(DYNAMIC))
 		));
-		System.out.println("FibonacciDynamic (1M iteration average): " + formatTime(
-				Timing.measureAverageNanos(1000000, () -> runOnNumbers(DYNAMIC))
+		System.out.println("FibonacciDynamicIterative (1M iteration average): " + formatTime(
+				Timing.measureAverageNanos(1_000_000, () -> generateHeat(ITERATIVE))
 		));
-		System.out.println("FibonacciParallelDynamic (1K iteration average): " + formatTime(
-				Timing.measureAverageNanos(1000, () -> runOnNumbers(PARALLEL_DYNAMIC))
+
+		System.out.println("# Parallel");
+		System.out.println("FibonacciRecursiveParallel (first): " + formatTime(
+				Timing.measureNanos(() -> generateHeat(PARALLEL_RECURSIVE))
+		));
+		System.out.println("FibonacciDynamicRecursivePersistentParallel (first): " + formatTime(
+				Timing.measureNanos(() -> generateHeat(PARALLEL_DYNAMIC))
+		));
+		System.out.println("FibonacciRecursiveParallel (10 iteration average): " + formatTime(
+				Timing.measureAverageNanos(10, () -> generateHeat(PARALLEL_RECURSIVE))
+		));
+		System.out.println("FibonacciDynamicRecursivePersistentParallel (1M iteration average): " + formatTime(
+				Timing.measureAverageNanos(1_000_000, () -> generateHeat(PARALLEL_DYNAMIC))
 		));
 	}
 
-	private static void runOnNumbers(Fibonacci calculator) {
+	private static void generateHeat(Fibonacci calculator) {
 		for(int n : NUMBERS) {
 			calculator.calculate(n);
 		}
@@ -53,7 +64,7 @@ public class FibonacciTiming {
 		} else if(digits > 3) {
 			return Math.round(nanos / 1e1) / 1e2 + " microseconds";
 		} else {
-			return Math.round(nanos) + " nanosecond";
+			return Math.round(nanos) + " nanoseconds";
 		}
 	}
 }

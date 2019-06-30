@@ -5,12 +5,13 @@ import provided._12._1.Fibonacci;
 import java.util.HashMap;
 import java.util.Map;
 
-public class FibonacciDynamic extends Fibonacci {
-	private static final Map<Integer, Long> memory = new HashMap<>();
+// uses recursion and dynamic programing with persistent memory
+public class FibonacciDynamicRecursivePersistent extends Fibonacci {
+	private final Map<Integer, Long> memory = new HashMap<>();
 
-	static {
-		memory.put(0, 0L);
-		memory.put(1, 1L);
+	{
+		this.memory.put(0, 0L);
+		this.memory.put(1, 1L);
 	}
 
 
@@ -19,12 +20,12 @@ public class FibonacciDynamic extends Fibonacci {
 		if(n < 0) {
 			throw new IllegalArgumentException("n must not be negative. Negafibonacci numbers are not supported.");
 		}
-		if(memory.containsKey(n)) {
-			return memory.get(n);
+		if(this.memory.containsKey(n)) {
+			return this.memory.get(n);
 		}
 
 		long result = calculate(n - 1) + calculate(n - 2);
-		memory.put(n, result);
+		this.memory.put(n, result);
 		return result;
 	}
 }
